@@ -1,7 +1,6 @@
-import 'dart:js';
-
-import 'package:catalog_app/homepage.dart';
-import 'package:catalog_app/loginpage.dart';
+import 'package:catalog_app/pages/homepage.dart';
+import 'package:catalog_app/pages/loginpage.dart';
+import 'package:catalog_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,11 +13,11 @@ void main() => runApp(
         ),
         debugShowCheckedModeBanner: false,
         title: "Catalog App",
-        initialRoute: "/",
+        initialRoute: MyRoute.loginRoute,
         routes: {
           "/": (context) => LoginPage(),
-          "/home": (context) => HomePage(),
-          "/login": (context) => LoginPage(),
+          MyRoute.homeRoute: (context) => HomePage(),
+          MyRoute.loginRoute: (context) => LoginPage(),
         },
       ),
     );

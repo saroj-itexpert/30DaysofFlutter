@@ -1,23 +1,25 @@
 import 'package:catalog_app/pages/homepage.dart';
 import 'package:catalog_app/pages/loginpage.dart';
 import 'package:catalog_app/utils/routes.dart';
+import 'package:catalog_app/widgets/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(
-      MaterialApp(
-        themeMode: ThemeMode.dark,
-        theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          fontFamily: GoogleFonts.lato().fontFamily,
-        ),
-        debugShowCheckedModeBanner: false,
-        title: "Catalog App",
-        initialRoute: MyRoute.loginRoute,
-        routes: {
-          "/": (context) => LoginPage(),
-          MyRoute.homeRoute: (context) => HomePage(),
-          MyRoute.loginRoute: (context) => LoginPage(),
-        },
-      ),
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      themeMode: ThemeMode.dark,
+      theme: MyTheme.lightTheme(context),
+      debugShowCheckedModeBanner: false,
+      title: "Catalog App",
+      initialRoute: MyRoute.homeRoute,
+      routes: {
+        "/": (context) => LoginPage(),
+        MyRoute.homeRoute: (context) => HomePage(),
+        MyRoute.loginRoute: (context) => LoginPage(),
+      },
     );
+  }
+}
